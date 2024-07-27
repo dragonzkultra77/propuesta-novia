@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¿Quieres ser mi novia?</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #ffe6e6;
+        padding: 50px;
+      }
+      .heart {
+        font-size: 50px;
+        color: #ff4b5c;
+        animation: pulse 1s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .question {
+        font-size: 28px;
+        margin: 20px 0;
+      }
+      .button {
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 20px;
+        margin: 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px #999;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+      .button-yes {
+        background-color: #4caf50; /* Green */
+        color: white;
+      }
+      .button-no {
+        background-color: #f44336; /* Red */
+        color: white;
+        position: relative;
+      }
+      .button-yes:active {
+        background-color: #45a049;
+        box-shadow: 0 2px #666;
+        transform: translateY(4px);
+      }
+      .button-no:hover {
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
+      }
+      @keyframes shake {
+        0% {
+          transform: translate(1px, 1px) rotate(0deg);
+        }
+        10% {
+          transform: translate(-1px, -2px) rotate(-1deg);
+        }
+        20% {
+          transform: translate(-3px, 0px) rotate(1deg);
+        }
+        30% {
+          transform: translate(3px, 2px) rotate(0deg);
+        }
+        40% {
+          transform: translate(1px, -1px) rotate(1deg);
+        }
+        50% {
+          transform: translate(-1px, 2px) rotate(-1deg);
+        }
+        60% {
+          transform: translate(-3px, 1px) rotate(0deg);
+        }
+        70% {
+          transform: translate(3px, 1px) rotate(-1deg);
+        }
+        80% {
+          transform: translate(-1px, -1px) rotate(1deg);
+        }
+        90% {
+          transform: translate(1px, 2px) rotate(0deg);
+        }
+        100% {
+          transform: translate(1px, -2px) rotate(-1deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="heart">❤️❤️❤️</div>
+    <h1 class="question">¿Te gustaría ser mi novia?</h1>
+
+    <button class="button button-yes" onclick="yesResponse()">Sí</button>
+    <button class="button button-no" onmouseover="moveButton(this)">No</button>
+
+    <script>
+      function yesResponse() {
+        alert("¡Sabía que dirías que sí! Yo también quiero ser tu novio ❤️");
+        confettiExplosion();
+      }
+
+      function moveButton(button) {
+        const x = Math.random() * 300 - 150;
+        const y = Math.random() * 300 - 150;
+        button.style.transform = `translate(${x}px, ${y}px)`;
+      }
+
+      function confettiExplosion() {
+        // Simulación de una explosión de confeti
+        const body = document.body;
+        const explode = document.createElement("div");
+        explode.style.position = "fixed";
+        explode.style.left = "50%";
+        explode.style.top = "50%";
+        explode.style.transform = "translate(-50%, -50%)";
+        explode.style.fontSize = "100px";
+        explode.innerHTML = "💥";
+        body.appendChild(explode);
+
+        setTimeout(() => {
+          body.removeChild(explode);
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>
